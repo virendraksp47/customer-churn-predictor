@@ -4,3 +4,5 @@ matplotlib
 scikit-learn
 seaborn
 flask
+docker.io
+python >=3.12
