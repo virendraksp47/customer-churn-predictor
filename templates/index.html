@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Churn Predictor</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+      color: #f8fafc;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 24px;
+      align-items: center;
+      padding: 36px;
+      background: rgba(15, 23, 42, 0.86);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3.5vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 700px;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .features {
+      display: grid;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 18px;
+      padding: 24px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+      color: #e2e8f0;
+    }
+
+    .card p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    .form-panel {
+      margin-top: 32px;
+      display: grid;
+      gap: 20px;
+      background: rgba(244, 245, 249, 0.05);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.9);
+      color: #f8fafc;
+      font-size: 1rem;
+    }
+
+    input::placeholder {
+      color: #94a3b8;
+    }
+
+    button {
+      width: max-content;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 14px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    .result {
+      margin-top: 16px;
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #e2e8f0;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div>
+        <h1>Customer Churn Predictor</h1>
+        <p>Predict customer churn with a clean, modern interface. Enter customer details below to get a quick churn likelihood estimate and identify retention opportunities fast.</p>
+      </div>
+      <div class="features">
+        <div class="card">
+          <h2>Fast insights</h2>
+          <p>Evaluate churn risk with a few key inputs and highlight customers who need attention.</p>
+        </div>
+        <div class="card">
+          <h2>Actionable data</h2>
+          <p>Use the predictor to prioritize retention efforts and reduce customer turnover.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-panel">
+      <h2>Enter customer profile</h2>
+      <form method="post" action="/predict">
+        <div>
+          <label for="customer_id">Customer ID</label>
+          <input id="customer_id" name="customer_id" type="text" placeholder="e.g. C000123" required>
+        </div>
+        <div>
+          <label for="tenure">Tenure (months)</label>
+          <input id="tenure" name="tenure" type="number" min="0" placeholder="12" required>
+        </div>
+        <div>
+          <label for="monthly_charges">Monthly Charges</label>
+          <input id="monthly_charges" name="monthly_charges" type="number" step="0.01" placeholder="79.85" required>
+        </div>
+        <div>
+          <label for="contract_type">Contract type</label>
+          <select id="contract_type" name="contract_type" required>
+            <option value="">Select contract</option>
+            <option value="Month-to-month">Month-to-month</option>
+            <option value="One year">One year</option>
+            <option value="Two year">Two year</option>
+          </select>
+        </div>
+        <button type="submit">Predict churn</button>
+      </form>
+      <div class="result" id="prediction-result">
+        <strong>Ready to predict:</strong> submit customer data to see churn probability and retention guidance.
+      </div>
+    </section>
+  </div>
+</body>
+</html>
