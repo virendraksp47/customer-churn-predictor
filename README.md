@@ -1,27 +1,50 @@
-# Customer Churn Predictor
+# Customer Churn Prediction
 
-A simple machine learning project that predicts whether a customer will churn or not.
+A machine learning project that predicts whether a customer is likely to **churn (leave a service)** based on customer and service-related attributes.
 
-## Features
+## 📌 Project Overview
 
-- Customer churn prediction
-- Data preprocessing
-- Random Forest model
+Customer churn is an important business problem because retaining existing customers is often more cost-effective than acquiring new ones.
 
-## Requirements
+This project uses data preprocessing, exploratory data analysis, feature engineering, and machine learning to identify customers who are at higher risk of leaving.
 
-```bash
-pip install pandas scikit-learn
-```
+## 🎯 Objectives
 
-## Run
+- Analyze customer behavior and churn patterns
+- Clean and preprocess customer data
+- Perform exploratory data analysis (EDA)
+- Engineer relevant features
+- Train a machine learning classification model
+- Evaluate model performance
+- Predict customer churn
 
-```bash
-python churn_predictor.py
-```
+## 🛠️ Technologies Used
 
-## Example Output
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Jupyter Notebook
+
+## 🔄 Project Workflow
 
 ```text
-Accuracy: 85%
-```
+Dataset
+   ↓
+Data Cleaning
+   ↓
+Exploratory Data Analysis
+   ↓
+Feature Engineering
+   ↓
+Data Preprocessing
+   ↓
+Train-Test Split
+   ↓
+Machine Learning Model
+   ↓
+Model Evaluation
+   ↓
+Churn Prediction
